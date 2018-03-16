@@ -2,7 +2,7 @@
 	"http_protocol": "http://",
 	"http_server_host": "localhost",
 	"http_server_port": 8080,
-	"context_path": "/runner/api",
+	"context_path": "",
 	"verticle_package_name": "io.vertx.realworld.verticle",
 	"reflection_package_name": "io.vertx.realworld.handler",
 	"http2Enabled": false,
@@ -74,6 +74,13 @@
 		"mongoConfig": {
 			"db_name": "vertx-ex",
 			"connection_string": "mongodb://127.0.0.1:27017/?serverselectiontimeoutms=10000;serverselectiontimeoutms=10000",
+			"useObjectId": true
+		},
+		"mysqlConfig": {
+			"db_name": "car",
+			"host": "106.15.200.20",
+			"username": "root",
+			"password": "jack514",
 			"useObjectId": true
 		}
 	}

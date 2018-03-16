@@ -68,6 +68,10 @@ public class ConfigHelper {
 		return getValueByEnvironment(Constants.MONGO_CONFIG);
 	}
 
+	public static JsonObject getMysqlConfig() {
+		return getValueByEnvironment(Constants.MYSQL_CONFIG);
+	}
+
 	public static JsonObject getMailconfig() {
 		return getValueByEnvironment(Constants.CONFIG_MAIL_NAME);
 	}

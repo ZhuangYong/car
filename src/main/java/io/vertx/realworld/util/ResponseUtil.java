@@ -16,7 +16,7 @@ public final class ResponseUtil {
 
 	public static <T> void toResponse(T result, final RoutingContext event, Date dt) {
 		final ApiResponse<T> response;
-		response = toApiResponse(200, Constants.RESPONSE_SUCCESS, (T) result, false);
+		response = toApiResponse(2000, Constants.RESPONSE_SUCCESS, (T) result, false);
 		final String resp = JsonUtil.encode(response);
 		String strDate = DateUtil.formatDate(new Date());
 		logger.info(String.join(" ", "Session", ResponseUtil.getHeaderValue(event, Constants.CORRELATION_ID),

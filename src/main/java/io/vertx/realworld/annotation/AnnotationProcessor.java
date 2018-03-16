@@ -69,8 +69,8 @@ public final class AnnotationProcessor {
 				String methodPath = annotation.path();
 				HttpMethod httpMethod = annotation.method();
 				Route route = router.route(httpMethod, String.join("", CONTEXT_PATH, basePath, methodPath));
-				setMediaType(route, methodConsumes == null ? baseConsumes : methodConsumes, false);
-				setMediaType(route, methodProduces == null ? baseProduces : methodProduces, true);
+//				setMediaType(route, methodConsumes == null ? baseConsumes : methodConsumes, false);
+//				setMediaType(route, methodProduces == null ? baseProduces : methodProduces, true);
 				if (null != method.getAnnotation(Protected.class)) {
 					route.handler(authHandler::handle);
 				}

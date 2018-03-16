@@ -27,7 +27,7 @@ import io.vertx.realworld.util.MapperUtil;
 import io.vertx.realworld.util.MessageUtil;
 import io.vertx.realworld.util.ResponseUtil;
 
-@RequestMapping(path = "/user")
+@RequestMapping(path = "/admin")
 public class AppUserHandler extends BaseHandler {
 	private AppUserHelper appUserHelper = AppUserHelper.INSTANCE;
 	private TemporaryLinkHelper temporaryLinkHelper = TemporaryLinkHelper.INSTANCE;
@@ -38,7 +38,7 @@ public class AppUserHandler extends BaseHandler {
 
 	@Override
 	@Protected
-	@RequestMapping(method = HttpMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = HttpMethod.POST, path = "/info", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void handle(RoutingContext ctx) {
 		try {
 			Date date = new Date();
@@ -60,7 +60,7 @@ public class AppUserHandler extends BaseHandler {
 		}
 	}
 
-	@RequestMapping(method = HttpMethod.POST, path = "/signup", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = HttpMethod.POST, path = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void signUp(RoutingContext ctx) {
 		try {
 			Date date = new Date();
@@ -75,7 +75,7 @@ public class AppUserHandler extends BaseHandler {
 			}).doOnSuccess(jsonObject -> {
 				TemporaryLink link = new TemporaryLink(jsonObject);
 				String tempLink = String.join("/", ConfigHelper.getServerContextPath(), "link", link.getLink());
-				MessageUtil.doSendWelcomeMail(appUserRequest, tempLink, this.vertx);
+//				MessageUtil.doSendWelcomeMail(appUserRequest, tempLink, this.vertx);
 				JsonObject response = new JsonObject().put("link", tempLink);
 				ResponseUtil.toResponse(response, ctx, date);
 			}).doOnError(cause -> {

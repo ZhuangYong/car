@@ -54,7 +54,7 @@
 		</encoder>
 	</appender>
 
-	<!-- <logger name="io.vertx.realworld"> <level value="DEBUG" /> </logger> -->
+	 <logger name="io.vertx.realworld"> <level value="INFO" /> </logger>
 
 	<logger name="io.vertx">
 		<level value="DEBUG" />

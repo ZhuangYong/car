@@ -10,6 +10,7 @@ public class Constants {
 	public static final String HTTP_VERTICLE_INSTANCE = "http_server_verticle_instance";
 	public static final String DATABSE_VERTICLE_INSTANCE = "http_server_verticle_instance";
 	public static final String MONGO_CONFIG = "mongoConfig";
+	public static final String MYSQL_CONFIG = "mysqlConfig";
 	public static final String RESPONSE_SUCCESS = "success";
 	public static final String RESPONSE_FAILED = "fail";
 	public static final String DB_EVENT_ADDRESS = "db_queue";

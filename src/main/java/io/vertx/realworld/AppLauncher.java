@@ -8,6 +8,7 @@ import io.vertx.core.impl.launcher.VertxLifecycleHooks;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.SLF4JLogDelegateFactory;
 import io.vertx.realworld.config.AppConfig;
+import io.vertx.realworld.util.JsonConfigUtil;
 
 public class AppLauncher extends VertxCommandLauncher implements VertxLifecycleHooks {
 
@@ -21,6 +22,7 @@ public class AppLauncher extends VertxCommandLauncher implements VertxLifecycleH
 
 	@Override
 	public void afterConfigParsed(JsonObject config) {
+        config = JsonConfigUtil.getConfig(AppLauncher.class, "appConfig.json");
 		AppConfig.INSTANCE.setConfig(config);
 
 	}
